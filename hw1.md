@@ -35,6 +35,6 @@ For the second part on matching dates, I'm mathing for types of date strings sep
 - To match dates with format "MONTH dd[st/th] yyyy": __r'[JFAMSOND]\w+ \d+[th|st]+ \d+'__
 ​
 ### Relevant Code
-​
-- Files can be found [here](https://github.com/MSIA/jwr0983_msia_text_analytics_2020)
+
+Github Link: https://github.com/MSIA/jwr0983_msia_text_analytics_2020
 
