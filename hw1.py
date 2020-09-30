@@ -9,14 +9,17 @@ from joblib import Parallel, delayed
 import re
 
 def nltk_tokenize(contents, level = 'word'):
+	# word level tokenization
     if level == 'word':
         return word_tokenize(contents)
+    # sentence level tokenization
     else:
         return sent_tokenize(contents)
 
 def nltk_stemming(contents):
     ps = PorterStemmer() 
     words = word_tokenize(contents)
+    # dictionary storing words and their stems
     stem = {}
     for word in words:
         stem[word] = ps.stem(word)
@@ -32,11 +35,14 @@ def spacy_tokenization(contents):
     nlp.max_length = 5000000
     nlp.add_pipe(nlp.create_pipe('sentencizer'))
     doc = nlp(contents)
+    # sentence level tokenization
     sents = [sent.string.strip() for sent in doc.sents]
+    # word level tokenization
     words = [token.text for token in doc]
     return sents, words
 
 def lemmatization(contents):
+	# using lemmatization instead of stemming
     nlp = spacy.load('en_core_web_sm')
     nlp.max_length = 5000000
     doc = nlp(contents)
@@ -64,20 +70,25 @@ def date_matching(contents):
 	dates_2 = re.findall(r'[0-9]{4}\-[0-9]{2}\-[0-9]{2}', contents)
 	dates_3 = re.findall(r'\d+ [JFAMSOND]\w+ \d+', contents)
 	dates_4 = re.findall(r'[JFAMSOND]\w+ \d+[th|st]+ \d+', contents)
+
+	# combining four scenarios together and return
 	all_dates = dates_1 + dates_2 + dates_3 + dates_4
 	return all_dates
 
 if __name__ == '__main__':
+	# file directory for the corpus
 	path = 'alt.atheism'
 	dirs = os.listdir(path)
 	os.chdir(path)
 
+	# list of strings inside the folder
 	d = []
 	for file in glob.glob("*"):
 	    with open(file, 'r', encoding="utf8", errors="ignore") as f:
 	        data = f.read()
 	    d.append(data)
 
+	# combining the list of strings into a single string for operations below
 	contents = ''.join(d)
 
 	# NLTK Tokenization

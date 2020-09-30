@@ -36,5 +36,5 @@ For the second part on matching dates, I'm mathing for types of date strings sep
 ​
 ### Relevant Code
 
-Github Link: https://github.com/MSIA/jwr0983_msia_text_analytics_2020
+Github Link: https://github.com/MSIA/jwr0983_msia_text_analytics_2020/tree/homework1
 
