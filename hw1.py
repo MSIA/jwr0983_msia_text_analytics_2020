@@ -36,6 +36,16 @@ def spacy_tokenization(contents):
     words = [token.text for token in doc]
     return sents, words
 
+def lemmatization(contents):
+    nlp = spacy.load('en_core_web_sm')
+    nlp.max_length = 5000000
+    doc = nlp(contents)
+    stem = {}
+    for token in doc:
+        stem[token] = token.lemma_
+        
+    return stem
+
 def spacy_pos_tagging(contents):
     nlp = spacy.load('en_core_web_sm') 
     nlp.max_length = 5000000
@@ -58,7 +68,7 @@ def date_matching(contents):
 	return all_dates
 
 if __name__ == '__main__':
-	path = '/Users/wangjue/Documents/NWU/Courses/fall_2020/490_nlp/20_newsgroups/alt.atheism'
+	path = 'alt.atheism'
 	dirs = os.listdir(path)
 	os.chdir(path)
 
@@ -74,14 +84,12 @@ if __name__ == '__main__':
 	start_time = time.time() 
 	words = nltk_tokenize(contents, level = 'word')
 	sents = nltk_tokenize(contents, level = 'sent')
-	elapsed_time = time.time() - start_time 
-	print('Tokenization (both word and sentence level) in nltk for this corpus is :', elapsed_time)
+	print('Tokenization (both word and sentence level) in nltk for this corpus is :', time.time() - start_time )
 
 	# NLTK Stemming
 	start_time = time.time()
 	stems = nltk_stemming(contents)
-	elapsed_time = time.time() - start_time 
-	print('Stemming in nltk took:', elapsed_time)
+	print('Stemming in nltk took:', time.time() - start_time )
 
 	# NLTK POS Tagging
 	start_time = time.time()
@@ -92,7 +100,7 @@ if __name__ == '__main__':
 	start_time = time.time()
 	words = Parallel(n_jobs=3)(delayed(nltk_tokenize)(i) for i in d)
 	sents = Parallel(n_jobs=3)(delayed(nltk_tokenize)(i) for i in d)
-	print('Tokenization (both word and sentence level) in nltk with tokenization for this corpus is :', elapsed_time)
+	print('Tokenization (both word and sentence level) in nltk for this corpus is %s'%(time.time() - start_time ))
 
 
 	# Spacy Tokenization
@@ -101,6 +109,10 @@ if __name__ == '__main__':
 	print ("Tokneization takes %s"%(time.time()-start_time))
 
 	# Spacy Stemming
+
+	start_time = time.time()
+	stem = lemmatization(contents)
+	print ("Lemmatization takes %s"%(time.time()-start_time))
 
 	# Spacy POS Tagging
 	start_time = time.time()
@@ -111,6 +123,9 @@ if __name__ == '__main__':
 	# REGEX Macthing
 	email = email_matching(contents)
 	dates = date_matching(contents)
+
+	print(email)
+	print(dates)
 
 
 
