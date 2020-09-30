@@ -26,13 +26,29 @@ Spacy currently doesn't support built-in stemming, so we are using lemmatization
 ​
 ## Problem 2 
 ​
-For this problem we are writing two regex expressions that match email address and dates. For the first part on matching email addresses, I'm using the expression __r'[A-Za-z0-9_\-\.]+\@[A-Za-z0-9_\-\.]+\.[A-Za-z0-9_\-\.]+__. This expression makes sure that the matched string has upper/lower case letters, dash/underscores, or dots prior to the @ symbol, the same sets of characters before and after the "." in the email address. 
+For this problem we are writing two regex expressions that match email address and dates. For the first part on matching email addresses, I'm using the following expression:
+```
+__r'[A-Za-z0-9_\-\.]+\@[A-Za-z0-9_\-\.]+\.[A-Za-z0-9_\-\.]+__. 
+```
+This expression makes sure that the matched string has upper/lower case letters, dash/underscores, or dots prior to the @ symbol, the same sets of characters before and after the "." in the email address. 
 
 For the second part on matching dates, I'm mathing for types of date strings separately before combining them into a single list of matched date strings. 
-- To match dates with format "dd/mm/yyyy" or "dd/mm/yy": __r'[0-9]+/[0-9]+/[0-9]+'__
-- To match dates with format "yyyy-mm-dd": __r'[0-9]{4}\-[0-9]{2}\-[0-9]{2}'__
-- To match dates with format "dd MONTH yyyy": __r'\d+ [JFAMSOND]\w+ \d+'__
-- To match dates with format "MONTH dd[st/th] yyyy": __r'[JFAMSOND]\w+ \d+[th|st]+ \d+'__
+- To match dates with format "dd/mm/yyyy" or "dd/mm/yy": 
+```
+r'[0-9]+/[0-9]+/[0-9]+'
+```
+- To match dates with format "yyyy-mm-dd": 
+```
+r'[0-9]{4}\-[0-9]{2}\-[0-9]{2}'
+```
+- To match dates with format "dd MONTH yyyy": 
+```
+r'\d+ [JFAMSOND]\w+ \d+'
+```
+- To match dates with format "MONTH dd[st/th] yyyy": 
+```
+r'[JFAMSOND]\w+ \d+[th|st]+ \d+'
+```
 ​
 ### Relevant Code
 
