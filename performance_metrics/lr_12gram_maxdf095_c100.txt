@@ -1,0 +1,4 @@
+Micro-recall is: 0.594884554458614
+Micro-precision is 0.5777462460316921
+Micro-F1 score is 0.5849339334408498
+Overall Accuracy is 0.594884554458614
