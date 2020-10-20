@@ -3,3 +3,4 @@ cleaned.csv
 *.sav
 *.pkl
 .ipynb_checkpoints
+*.docx
