@@ -1,2 +1,5 @@
 *.json
 cleaned.csv
+*.sav
+*.pkl
+.ipynb_checkpoints

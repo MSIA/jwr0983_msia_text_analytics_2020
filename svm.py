@@ -69,37 +69,37 @@ if __name__ == '__main__':
 	print("model built")
 
 
-	# clf = svm.LinearSVC(random_state=123, penalty='l2', C=1.0)
-	# clf.fit(train_x_tfidf, train_y)
-	# pred = clf.predict(test_x_tfidf)
-	# performance_metric("svm_c1_1gram_0.95", test_y, pred)
+	clf = svm.LinearSVC(random_state=123, penalty='l2', C=1.0)
+	clf.fit(train_x_tfidf, train_y)
+	pred = clf.predict(test_x_tfidf)
+	performance_metric("svm_c1_1gram_0.95", test_y, pred)
 
-	# print('model built')
+	print('model built')
 
-	# clf = svm.LinearSVC(random_state=123, penalty='l2', C=1.0)
-	# clf.fit(train_x_tfidf_12, train_y)
-	# pred = clf.predict(test_x_tfidf_12)
-	# performance_metric("svm_c1_12gram_0.95", test_y, pred)
+	clf = svm.LinearSVC(random_state=123, penalty='l2', C=1.0)
+	clf.fit(train_x_tfidf_12, train_y)
+	pred = clf.predict(test_x_tfidf_12)
+	performance_metric("svm_c1_12gram_0.95", test_y, pred)
 
-	# print('model built')
+	print('model built')
 
-	# clf = svm.LinearSVC(random_state=123, penalty='l2', C=1.0)
-	# clf.fit(train_x_tfidf_075, train_y)
-	# pred = clf.predict(test_x_tfidf_075)
-	# performance_metric("svm_c1_1gram_0.75", test_y, pred)
+	clf = svm.LinearSVC(random_state=123, penalty='l2', C=1.0)
+	clf.fit(train_x_tfidf_075, train_y)
+	pred = clf.predict(test_x_tfidf_075)
+	performance_metric("svm_c1_1gram_0.75", test_y, pred)
 
-	# print('model built')
+	print('model built')
 
-	# clf = svm.LinearSVC(random_state=123, penalty='l2', C=1.0)
-	# clf.fit(train_x_tfidf_075_12, train_y)
-	# pred = clf.predict(test_x_tfidf_075_12)
-	# performance_metric("svm_c1_12gram_0.75", test_y, pred)
+	clf = svm.LinearSVC(random_state=123, penalty='l2', C=1.0)
+	clf.fit(train_x_tfidf_075_12, train_y)
+	pred = clf.predict(test_x_tfidf_075_12)
+	performance_metric("svm_c1_12gram_0.75", test_y, pred)
     
-	# print('model built')
+	print('model built')
 
-	# clf = svm.LinearSVC(random_state=123, penalty='l2', C=10.0)
-	# clf.fit(train_x_tfidf_12, train_y)
-	# pred = clf.predict(test_x_tfidf_12)
-	# performance_metric("svm_c10_12gram_0.95", test_y, pred)
+	clf = svm.LinearSVC(random_state=123, penalty='l2', C=10.0)
+	clf.fit(train_x_tfidf_12, train_y)
+	pred = clf.predict(test_x_tfidf_12)
+	performance_metric("svm_c10_12gram_0.95", test_y, pred)
 
-	# print('model built')
+	print('model built')
